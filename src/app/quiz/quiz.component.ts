@@ -33,4 +33,8 @@ constructor()
   {
     return !q.options.every(o=> o.isSelected==false);
   }
+  iscorrect(q:Question)
+  {
+    return q.options.every(o=>o.isAnswer==o.isSelected); 
+  }
 }

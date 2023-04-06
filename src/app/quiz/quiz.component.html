@@ -1,23 +1,26 @@
 <div  >
     <h1>{{qdata.name}}
       
+      <button type="button" class="btn btn-lg position-relative">
+        {{qdata.name}}
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{qdata.questions.length}}
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
     </h1>
     <h3>{{qdata.description}}</h3>
-    <button type="button" class="btn btn-primary position-relative">
-      {{qdata.name}}
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        {{qdata.questions.length}}
-        <span class="visually-hidden">unread messages</span>
-      </span>
-    </button>
+    
     <hr/>
+    <div class="row">
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
       <button type="button" (click)="changermod('quiz')" class="btn btn-danger">Quiz</button>
       <button type="button" (click)="changermod('review')"  class="btn btn-warning">Review</button>
       <button type="button" (click)="changermod('submit')" class="btn btn-success">Submit</button>
     </div>
+  </div>
     
-    
+  <div class="container">
     <div  *ngIf="mode=='quiz'">
     <div *ngFor="let q of qdata.questions; index as i">
     <div  *ngIf="i==page" class="question">
@@ -62,6 +65,22 @@
       </div>
     </div>
     <div  *ngIf="mode=='submit'">
-      mode validation
+      
+      <div *ngFor="let q of qdata.questions; index as i">
+        <div  [class]="iscorrect(q)?'':'not-answered'">
+        {{i+1}}-{{q.name}}
+        <ul>
+          <li *ngFor="let o of q.options" class="response">
+           <input type="checkbox" disabled [(ngModel)]="o.isSelected"  /> {{o.name}}
+          </li>
+        </ul>
+        <p *ngIf="!iscorrect(q)">votre reponse est inccorect
+        
+      </p>
+      </div> 
+
+        
+        </div>
+    </div>
     </div>
     </div>

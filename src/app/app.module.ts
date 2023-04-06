@@ -9,6 +9,9 @@ import { LeftComponent } from './left/left.component';
 import { LoginComponent } from './login/login.component';
 import { BodyComponent } from './body/body.component';
 import { FormsModule } from '@angular/forms';
+import { QuizpComponent } from './quizp/quizp.component';
+import { QuestionComponent } from './question/question.component';
+import { OptionComponent } from './option/option.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     QuizComponent,
     LeftComponent,
     LoginComponent,
-    BodyComponent
+    BodyComponent,
+    QuizpComponent,
+    QuestionComponent,
+    OptionComponent
   ],
   imports: [
     BrowserModule,

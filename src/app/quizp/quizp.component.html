@@ -1,0 +1,6 @@
+<h1>{{qdata.name}}</h1>
+<div *ngFor="let q of qdata.questions; index as i">
+    <div *ngIf="i==1">
+    <app-question [qt]="q"></app-question>
+</div>
+</div>
