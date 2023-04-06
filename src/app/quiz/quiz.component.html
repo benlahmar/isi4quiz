@@ -1,0 +1,67 @@
+<div  >
+    <h1>{{qdata.name}}
+      
+    </h1>
+    <h3>{{qdata.description}}</h3>
+    <button type="button" class="btn btn-primary position-relative">
+      {{qdata.name}}
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {{qdata.questions.length}}
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    </button>
+    <hr/>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+      <button type="button" (click)="changermod('quiz')" class="btn btn-danger">Quiz</button>
+      <button type="button" (click)="changermod('review')"  class="btn btn-warning">Review</button>
+      <button type="button" (click)="changermod('submit')" class="btn btn-success">Submit</button>
+    </div>
+    
+    
+    <div  *ngIf="mode=='quiz'">
+    <div *ngFor="let q of qdata.questions; index as i">
+    <div  *ngIf="i==page" class="question">
+      {{i+1}}-{{q.name}}
+    <ul>
+      <li *ngFor="let o of q.options" class="response">
+       <input type="checkbox" [(ngModel)]="o.isSelected" /> {{o.name}}
+      </li>
+    </ul>
+    
+    
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" (click)="goto(page-1)" [hidden]="page==0" href="#">Previous</a></li>
+        <li class="page-item" *ngFor="let q of qdata.questions; index as ind" >
+          <a class="page-link" href="#" (click)="goto(ind+1)">{{ind+1}}</a>
+        </li>
+        
+        <li class="page-item"><a class="page-link" href="#"  (click)="goto(page+1)" [hidden]="page==9">Next</a></li>
+      </ul>
+    </nav>
+    
+    
+    </div>
+    
+    </div>
+    </div>
+    <div  *ngIf="mode=='review'">
+    mode revision
+    
+    <div *ngFor="let q of qdata.questions; index as i">
+      <div  [class]="isselect(q)?'':'not-answered'">
+      {{i+1}}-{{q.name}}
+      <ul>
+        <li *ngFor="let o of q.options" class="response">
+         <input type="checkbox" [(ngModel)]="o.isSelected"  /> {{o.name}}
+        </li>
+      </ul>
+    </div> 
+     
+      
+      </div>
+    </div>
+    <div  *ngIf="mode=='submit'">
+      mode validation
+    </div>
+    </div>

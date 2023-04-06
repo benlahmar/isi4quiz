@@ -1,0 +1,28 @@
+.question{
+    width: 60%;
+    background-color: rgb(137, 164, 195);
+    box-shadow: 5px 5px 5px 5px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.response{
+    background-color: rgba(244, 238, 238, 0.4);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 20px;
+    list-style: none;
+    
+}
+
+.response:hover
+{
+    background-color: blueviolet;
+    color: white;
+    
+    
+    
+}
+.not-answered{
+    background-color: red;
+}
