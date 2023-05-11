@@ -9,7 +9,8 @@ import { Quiz } from '../model/quiz';
 })
 export class QuizpComponent implements OnInit {
 
-  qdata:Quiz
+  qdata:Quiz;
+  page:number=0;
   constructor() {
     this.qdata=new Quiz(data)
    }
@@ -17,4 +18,14 @@ export class QuizpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goto(x:number)
+  {
+    this.page=x;
+  }
+
+  recuper(e)
+  {
+    
+    this.page=e.index;
+  }
 }

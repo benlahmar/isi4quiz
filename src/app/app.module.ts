@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { QuizpComponent } from './quizp/quizp.component';
 import { QuestionComponent } from './question/question.component';
 import { OptionComponent } from './option/option.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { OptionComponent } from './option/option.component';
     BodyComponent,
     QuizpComponent,
     QuestionComponent,
-    OptionComponent
+    OptionComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
