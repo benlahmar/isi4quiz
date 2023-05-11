@@ -13,6 +13,8 @@ import { QuizpComponent } from './quizp/quizp.component';
 import { QuestionComponent } from './question/question.component';
 import { OptionComponent } from './option/option.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { AboutComponent } from './about/about.component';
+import { ThemeComponent } from './theme/theme.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PaginationComponent } from './pagination/pagination.component';
     QuizpComponent,
     QuestionComponent,
     OptionComponent,
-    PaginationComponent
+    PaginationComponent,
+    AboutComponent,
+    ThemeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -9,11 +9,17 @@ export class PaginationComponent implements OnInit {
 
   p:number=0;
 
+  @Input()
+  nbpage:number;
+  pages=[];
+
   @Output()
   handler=new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
+    for(let i=0;i<this.nbpage;i++)
+    this.pages.push(i)
   }
 
   goto(x:number)

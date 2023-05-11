@@ -1,10 +1,10 @@
 <h1>{{qdata.name}}</h1>
 <div *ngFor="let q of qdata.questions; index as i">
     <div *ngIf="i==page">
-        {{page}}
+       
     <app-question [qt]="q"></app-question>
     
 </div>
 </div>
-<app-pagination   (handler)="recuper($event)"></app-pagination>
+<app-pagination  [nbpage]="qdata.questions.length"  (handler)="recuper($event)"></app-pagination>
 

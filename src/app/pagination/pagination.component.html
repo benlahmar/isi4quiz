@@ -1,9 +1,10 @@
 <nav aria-label="Page navigation example">
     <ul class="pagination">
+
+
       <li class="page-item"><a class="page-link" (click)="goto(p-1)" *ngIf="p>0">Previous</a></li>
-      <li class="page-item"><a class="page-link" (click)="goto(0)">1</a></li>
-      <li class="page-item"><a class="page-link" (click)="goto(1)">2</a></li>
-      <li class="page-item"><a class="page-link" (click)="goto(2)">3</a></li>
-      <li class="page-item"><a class="page-link" *ngIf="p<9" (click)="goto(p+1)">Next</a></li>
+      <li class="page-item" *ngFor="let x of pages"><a class="page-link" (click)="goto(x)">{{x+1}}</a></li>
+
+      <li class="page-item"><a class="page-link" *ngIf="p<nbpage-1" (click)="goto(p+1)">Next</a></li>
     </ul>
   </nav>
